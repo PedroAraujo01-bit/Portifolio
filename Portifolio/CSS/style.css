@@ -1,0 +1,175 @@
+/*Reset básico*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --Principal: #2893ec;
+    --Secundaria: #517bf0bb;
+    --escuro: #081127d0;
+    --claro: #f8f9fa;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    gap: 10px;
+}
+
+h1, h2{
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.header p {
+    font-size: 16px;
+    color: var(--claro);
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+    margin-bottom: 1.2em;
+}
+
+section {
+    padding: 2em;
+}
+
+.projeto-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.projeto {
+    background-color: var(--Secundaria);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 300px;
+    max-width: 370px;
+    transition: transform 0.2s ease;
+}
+
+.projeto > a {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: bold;
+}
+
+.projeto:hover {
+    transform: translateY(-5px);
+}
+
+.projeto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+ .habilidade ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1em;
+ }
+
+ .habilidade li {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+ }
+ 
+
+.fotoperfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 20px #030303dc;
+    border: 2px solid var(--claro);
+    margin-bottom: 15px;
+}
+
+.nome {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.validacao {
+    font-weight: bold;
+    color: var(--claro);
+    text-decoration: none;
+}
+
+.contato {
+    text-align: center;
+}
+
+.github-cor, .envelope-cor {
+    font-weight: bold;
+    color: var(--claro);
+    padding: 10px;
+    text-decoration: none;
+}
+
+@media (max-width:600px) {
+    .projeto-container {
+        flex-direction: column;
+    }
+    .projeto {
+        max-width: 100%;
+    }
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.ativo {
+    display: flex;
+    background-color: #0000009d;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.lightbox-fechar {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5em;
+    color: var(--claro);
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    transition: 0.2s;
+}
+

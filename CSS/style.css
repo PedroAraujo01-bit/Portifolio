@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Habilita a rolagem suave para links de navegação */
+}
+
 /* Centralização de variáveis customizadas (Design System básico) */
 :root {
     --cor-clara: #e6f4f8;

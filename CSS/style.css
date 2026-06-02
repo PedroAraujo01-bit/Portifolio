@@ -1,0 +1,319 @@
+/*RESET BASICO E CONFIGURAÇÕES GLOBAIS*/
+* {
+    margin: 0;
+    padding: 0;
+    /*Altera o cálculo do box-model para incluir padding e border no tamanho total do elemento*/
+    box-sizing: border-box;
+}
+
+/* Centralização de variáveis customizadas (Design System básico) */
+:root {
+    --cor-clara: #e6f4f8;
+    --cor-media: #96e6f7a8;
+    --cor-media-escura: #67bec2;
+    --cor-media-vivida: #3cb1b9;
+    --cor-escura: #043649ef;
+}
+
+/* Define a tipografia geral, a cor base do texto e o fundo em degrade da pagina inteira */
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    background: linear-gradient(to top  , #035d81e1, #021923);
+}
+/* LAYOUT DO HEADER (CABEÇALHO) */
+.header {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza a caixa inteira do header dentro da pagina */
+    display: flex; /* Coloca a foto e o bloco de texto lado a lado no desktop */
+    align-items: center;
+    gap: 60px;
+    padding: 2em;
+}
+
+/* Caixa que agrupa nome e cargo para controlar os textos sem mover a foto junto */
+.header-texto {
+    display: flex;
+    flex-direction: column; /* Empilha Pedro_Araujo e Desenvolvedor Front-end */
+    align-items: center;
+    text-align: center; /* Centraliza o texto dentro do h1 e do p */
+    width: 23ch; /* Reserva largura para o maior texto usado no typewriter */
+    margin:0 auto; /* Centraliza a caixa .header-texto dentro do espaco disponivel */
+    
+}
+
+/* Linha divisoria visual entre o cabecalho e o conteudo principal */
+hr {
+    border: none;
+    border-top: 1px solid var(--cor-media-vivida);
+    margin: 0 auto 2em;
+    width: 76%;
+}
+
+h1, h2{
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color:var(--cor-clara);
+}
+/* Container que limita a largura máxima do site em telas muito grandes */
+.container {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto; /* Centraliza o container inteiro no meio da tela */
+}
+
+/* Controle especifico do titulo dentro do header, sem afetar outros h1 da pagina */
+.header-texto h1 {
+    font-size: 2.8em;
+    color:var(--cor-clara);
+}
+
+/* Controle especifico do cargo dentro do header, separado dos paragrafos comuns */
+.header-texto p {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+    margin-bottom: 1.2em;
+}
+
+/* Espacamento interno padrao para separar visualmente cada bloco de conteudo da pagina */
+section {
+    padding: 2em;
+}
+
+/* Agrupa os cards de projeto e permite que eles quebrem linha em telas menores */
+.projeto-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card individual de cada projeto */
+.projeto {
+    background-color: var(--cor-media);
+    color: var(--cor-clara);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 300px;
+    max-width: 370px;
+    transition: transform 0.2s ease;
+}
+
+/* Remove o sublinhado padrao dos links dos projetos e reforca a leitura como chamada de acao */
+.projeto > a {
+    text-decoration: none;
+    color: var(--cor-clara);
+    font-weight: bold;
+}
+
+/* Cria uma microinteracao visual ao passar o mouse sobre o card */
+.projeto:hover {
+    transform: translateY(-5px);
+}
+
+/* Padroniza as imagens dos projetos para manter os cards com altura consistente */
+.projeto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Remove marcadores da lista de habilidades para deixar a secao mais limpa visualmente */
+ .habilidade ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1em;
+ }
+
+/* Ajusta o tamanho e o respiro entre cada habilidade listada */
+ .habilidade li {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+ }
+ 
+
+/* Foto de perfil controlada pela propria classe, independente do layout dos textos */
+.fotoperfil {
+    width: 150px;
+    height: 150px;
+    transform: translateX(30px); /* Desloca visualmente a foto um pouco para a direita no desktop */
+    border-radius: 50%; /* Recorta a imagem em formato de círculo perfeito */
+    object-fit: cover; /* Impede que a foto fique distorcida ou esticada*/
+    box-shadow: 0 0 20px #030303dc;  /* Sombra escura suave para dar profundidade */
+    border: 2px solid var(--cor-media-vivida);
+    margin-bottom: 15px;
+}
+
+/* Nome em destaque logo abaixo da foto de perfil */
+.nome {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: var(--cor-clara);
+}
+
+/* Link de validacao dos certificados com aparencia consistente com o tema claro sobre fundo escuro */
+.validacao {
+    font-weight: bold;
+    color: var(--cor-clara);
+    text-decoration: none;
+}
+
+/* Centraliza o bloco de contato no rodape */
+.contato {
+    color: var(--cor-clara);
+    text-align: center;
+}
+
+/* Estilo compartilhado dos links de contato, como GitHub, e-mail, LinkedIn*/
+.github-cor, .envelope-cor, .linkedin-cor {
+    font-weight: bold;
+    color: var(--cor-clara);
+    padding: 10px;
+    text-decoration: none;
+}
+
+/* Ajuste responsivo: em telas pequenas, os cards deixam de ficar lado a lado e passam a empilhar */
+@media (max-width:600px) {
+    /* No mobile, o header deixa de ser linha e vira coluna para caber melhor na tela */
+    .header {
+        flex-direction: column;
+    }
+
+    .fotoperfil {
+        transform: translateX(0); /* Remove o deslocamento lateral do desktop para centralizar a foto no celular */
+    }
+
+    hr {
+        width: 90%; /* Aumenta a linha divisoria no mobile para acompanhar a largura menor da tela */
+    }
+
+    .header-texto h1 {
+        font-size: 2em; /* Reduz o titulo para evitar quebra ou aperto visual em telas pequenas */
+    }
+
+    .header-texto p {
+        font-size: 1.5em; /* Reduz o cargo para manter proporcao com o nome no mobile */
+    }
+
+    .projeto-container {
+        flex-direction: column;
+    }
+
+    .projeto {
+        max-width: 100%;
+    }
+}
+
+/* Camada fixa que cobre a tela inteira quando a imagem do projeto e ampliada */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estado ativo do lightbox: exibe a camada e aplica o fundo escuro translucido */
+.lightbox.ativo {
+    display: flex;
+    background-color: #0000009d;
+}
+
+/* Imagem ampliada limitada ao tamanho da tela para evitar cortes exagerados */
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* Botao fixo usado para fechar o lightbox */
+.lightbox-fechar {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5em;
+    color: var(--cor-clara);
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    transition: 0.2s;
+}
+
+/* Efeito de maquina de escrever aplicado no nome e no cargo do cabecalho */
+/* Base do typewriter: o texto existe no HTML, mas a largura inicial 0 esconde o conteudo */
+.typewriter {
+    display: inline-block;
+    width: 0; /* Comeca sem largura para revelar o texto aos poucos */
+    max-width: max-content;
+    overflow: hidden; /* Esconde as letras que ainda nao foram reveladas */
+    white-space: nowrap; /* Impede a quebra de linha durante a animacao */
+    border-right: 1px solid transparent;
+}
+
+/* Primeira animacao: revela Pedro_Araujo, pisca o cursor e remove o cursor antes da segunda linha */
+.typewriter-nome {
+    animation: digitar-nome 1s steps(12, end) forwards, piscar-cursor 0.2s step-end 4, remover-cursor 0.1s linear 1.2s forwards;
+}
+
+/* Segunda animacao: comeca depois do nome para simular um unico cursor trabalhando por vez */
+.typewriter-cargo {
+    animation: digitar-cargo 1.5s steps(23, end) 1.5s forwards, piscar-cursor 0.2s step-end 1.5s 7;
+}
+
+/* Estado final aplicado via JavaScript para o texto voltar ao comportamento normal */
+.typewriter-finalizado .typewriter {
+    width: auto;
+    overflow: visible;
+    border-right: none;
+    animation: none;
+}
+
+/* A unidade ch ajuda a revelar aproximadamente a quantidade de caracteres do nome */
+@keyframes digitar-nome {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 12ch;
+    }
+}
+
+/* Revela o cargo ate 23ch, equivalente ao texto Desenvolvedor Front-end */
+@keyframes digitar-cargo {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 23ch;
+    }
+}
+
+/* Alterna a cor da borda direita para criar o piscar do cursor */
+@keyframes piscar-cursor {
+    0%, 100% {
+        border-color: var(--cor-clara);
+    }
+
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Garante que o cursor do nome suma antes do cursor do cargo aparecer */
+@keyframes remover-cursor {
+    to {
+        border-color: transparent;
+    }
+}
